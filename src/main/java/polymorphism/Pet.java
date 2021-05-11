@@ -26,6 +26,7 @@ class Parrot extends Pet {
 class Main {
     public static void groupTalk(Pet[] p){
         int i;
+        // 부모 클래스의 참조변수가 자식클래스 객체를 참조 가능.
         for(i = 0; i < 3; ++i){
             p.talk();
         }
