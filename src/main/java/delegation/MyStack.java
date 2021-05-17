@@ -27,3 +27,11 @@ public class MyStack<String>{
         return arList.size();
     }
 }
+
+class Main{
+    public static void main(String[] args) {
+        MyStack<String> ms = new MyStack<>();
+        ms.push("a");
+        System.out.println(ms.pop());
+    }
+}
