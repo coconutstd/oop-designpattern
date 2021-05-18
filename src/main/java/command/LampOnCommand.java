@@ -61,13 +61,13 @@ class Client2 {
         Lamp lamp = new Lamp();
         Command lampOnCommand = new LampOnCommand(lamp);
 
-        Button2 button1 = new Button(lampOnCommand);
+        Button2 button1 = new Button2(lampOnCommand);
         button1.pressed();
 
         Alarm alarm = new Alarm();
         Command alarmOnCommand = new AlarmOnCommand(alarm);
 
-        Button2 button2 = new Button(alarmOnCommand);
+        Button2 button2 = new Button2(alarmOnCommand);
         button2.pressed();
 
         button2.setCommand(lampOnCommand);
