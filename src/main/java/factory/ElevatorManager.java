@@ -10,17 +10,17 @@ class SchedulerFactory {
         ElevatorScheduler scheduler = null;
         switch (stategyID) {
             case RESPONSE_TIME:
-                scheduler = new ResponseTimeScheduler();
+                scheduler = ResponseTimeScheduler.getInstance();
                 break;
             case THROUGHTPUT:
-                scheduler = new ThroughputScheduler();
+                scheduler = ThroughputScheduler.getInstance();
                 break;
             case DYNAMIC:
                 int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
                 if (hour < 12)
-                    scheduler = new ResponseTimeScheduler();
+                    scheduler = ResponseTimeScheduler.getInstance();
                 else
-                    scheduler = new ThroughputScheduler();
+                    scheduler = ThroughputScheduler.getInstance();
                 break;
         }
         return scheduler;
@@ -70,6 +70,16 @@ class ElevatorController {
 }
 
 class ResponseTimeScheduler implements ElevatorScheduler {
+    private static ElevatorScheduler scheduler;
+    private ResponseTimeScheduler() { }
+
+    public static ElevatorScheduler getInstance() {
+        if (scheduler == null)
+            scheduler = new ResponseTimeScheduler();
+
+        return scheduler;
+    }
+
     @Override
     public int selectElevator(ElevatorManager manager, int destination, Direction direction) {
         return 0;
@@ -77,6 +87,17 @@ class ResponseTimeScheduler implements ElevatorScheduler {
 }
 
 class ThroughputScheduler implements ElevatorScheduler{
+    private static ElevatorScheduler scheduler;
+    private ThroughputScheduler() { }
+
+    public static ElevatorScheduler getInstance() {
+        if (scheduler == null) {
+            scheduler = new ThroughputScheduler();
+        }
+
+        return scheduler;
+    }
+
     @Override
     public int selectElevator(ElevatorManager manager, int destination, Direction direction) {
         return 0;
