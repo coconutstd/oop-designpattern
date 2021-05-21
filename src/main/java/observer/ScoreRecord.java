@@ -2,23 +2,13 @@ package observer;
 
 import java.util.*;
 
-public class ScoreRecord {
+public class ScoreRecord extends Subject{
     private List<Integer> scores = new ArrayList<Integer>();
-    private DataSheetView dataSheetView;
-    private MinMaxView minMaxView;
-
-    public void setMinMaxView(MinMaxView minMaxView) {
-        this.minMaxView = minMaxView;
-    }
-
-    public void setDataSheetView(DataSheetView dataSheetView) {
-        this.dataSheetView = dataSheetView;
-    }
 
     public void addScore(int score) {
         scores.add(score);
-        //dataSheetView.update();
-        minMaxView.update();
+
+        notifyObservers();
     }
 
     public List<Integer> getScoreRecord() {

@@ -2,7 +2,7 @@ package observer;
 
 import java.util.*;
 
-public class DataSheetView {
+public class DataSheetView implements Observer {
     private ScoreRecord scoreRecord;
     private int viewCount;
 

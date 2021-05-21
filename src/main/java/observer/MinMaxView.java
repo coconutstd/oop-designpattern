@@ -2,7 +2,7 @@ package observer;
 
 import java.util.*;
 
-public class MinMaxView {
+public class MinMaxView implements Observer {
     private ScoreRecord scoreRecord;
 
     public MinMaxView(ScoreRecord scoreRecord) {
