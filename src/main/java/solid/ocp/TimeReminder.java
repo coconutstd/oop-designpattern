@@ -1,16 +1,17 @@
 package solid.ocp;
 
-import java.util.Calendar;
-
 public class TimeReminder {
+    TimeProvider tProv;
     private MP3 m;
 
-    public void reminder() {
-        Calendar cal = Calendar.getInstance();
-        m = new MP3();
-        int hour = cal.get(Calendar.HOUR_OF_DAY);
+    public void setTimeProvider(TimeProvider tProv) {
+        this.tProv = tProv;
+    }
 
-        if (hour >= 22) {
+    public void reminder() {
+        m = new MP3();
+        int hours = tProv.getTime();
+        if (hours >= 22) {
             m.playSong();
         }
     }
@@ -19,5 +20,16 @@ public class TimeReminder {
 class MP3 {
     public void playSong() {
         System.out.println("Singing...");
+    }
+}
+
+
+class Client {
+    public static void main(String[] args) {
+        TimeReminder sut = new TimeReminder();
+        FakeTimeProvider tProvStub = new FakeTimeProvider();
+        tProvStub.setHours(23);
+        sut.setTimeProvider(tProvStub);
+        sut.reminder();
     }
 }
