@@ -6,7 +6,7 @@ public class DataSheetView implements Observer {
     private ScoreRecord scoreRecord;
     private int viewCount;
 
-    public DataSheetView(ScoreRecord scoreRecord, int ViewCount) {
+    public DataSheetView(ScoreRecord scoreRecord, int viewCount) {
         this.scoreRecord = scoreRecord;
         this.viewCount = viewCount;
     }
