@@ -5,7 +5,10 @@ public class Client {
         RoadDisplay road = new RoadDisplay();
         road.draw();
 
-        RoadDisplay roadWithLane = new RoadDisplayWithLane();
+        Display roadWithLane = new LaneDecorator(new RoadDisplay());
         roadWithLane.draw();
+
+        Display roadWithTraffic = new TrafficDecorator(new RoadDisplay());
+        roadWithTraffic.draw();
     }
 }
