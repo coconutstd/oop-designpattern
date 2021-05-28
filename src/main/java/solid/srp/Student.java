@@ -6,6 +6,10 @@ package solid.srp;
 데이터베이스 관련 로직은 다른 클래스에서 해도 된다.
  */
 
+/*
+책임이 많을 수록 변경할 이유가 많아진다.
+ */
+
 public class Student {
     public void getCourses() { }
     public void addCourse(Course c) { }
