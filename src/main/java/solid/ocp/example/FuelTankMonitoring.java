@@ -9,6 +9,6 @@ public class FuelTankMonitoring {
         }
     }
 
-    private boolean checkFuelTank() {}
+    private boolean checkFuelTank() {return false;}
     private void giveWarningSignal() {}
 }

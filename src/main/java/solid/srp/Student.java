@@ -12,9 +12,9 @@ package solid.srp;
 
 public class Student {
     public void getCourses() { }
-    public void addCourse(Course c) { }
+//    public void addCourse(Course c) { }
     public void save() { }
-    public Student load() { }
+//    public Student load() { }
     public void printOnReport() { }
     public void printOnAttendanceBook() { }
 }
